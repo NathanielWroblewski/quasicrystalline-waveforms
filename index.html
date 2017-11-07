@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Quasicrystalline waveforms</title>
+
+    <link href='//fonts.googleapis.com/css?family=Libre+Baskerville|Montserrat:400' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" type="text/css" href="/public/stylesheets/styles.css">
+
+    <link rel="apple-touch-icon-precomposed" href="/public/images/favicon.png">
+
+    <meta name="viewport" content="initial-scale=1" />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="title">Quasicrystalline waveforms</h1>
+      <canvas height="500px" width="500px" class="wavebox"></canvas>
+      <p class="subtitle">
+        Quasicrystals generated from
+        <select class="order">
+          <option value="5">five</option>
+          <option value="6">six</option>
+          <option value="7" selected>seven</option>
+          <option value="8">eight</option>
+        </select>
+        travelling planewaves
+      </p>
+    </div>
+    <script src="/public/javascripts/namespace.js" type="text/javascript"></script>
+    <script src="/public/javascripts/models/wave.js" type="text/javascript"></script>
+    <script src="/public/javascripts/views/quasicrystal.js" type="text/javascript"></script>
+    <script src="/public/javascripts/utils.js" type="text/javascript"></script>
+    <script src="/public/javascripts/app.js" type="text/javascript"></script>
+  </body>
+</html>
