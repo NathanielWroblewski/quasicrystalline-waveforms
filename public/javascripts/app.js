@@ -1,6 +1,5 @@
 (function () {
-  let order = 7 // number of waves to combine
-  const angles = utils.distribute(order)
+  const defaultOrder = 7
   const width = 375
   const height = 375
   const frames = 80
@@ -16,24 +15,21 @@
     const x = index % width
     const y = Math.floor(index / width)
 
-    return new Quasi.Models.Wave({ x, y, angles, phases })
+    return new Quasi.Models.Wave({ x, y, phases })
   })
 
   const view = new Quasi.Views.Quasicrystal({
     context, collection, next, width, height
   })
 
-  // Select box listener
+  // Select box
   const select = document.querySelector('.order')
-  const reorder = ({ target: { value } }) => {
-    order = parseInt(value, 10)
-    const newAngles = utils.distribute(order)
+  const order = new Quasi.Views.Order({ element: select, collection })
 
-    collection.forEach(wave => wave.angles = newAngles)
-  }
-  select.addEventListener('change', reorder)
+  order.update(defaultOrder)
+  order.render()
 
-  // Initialize
+  // Initialize wave box
   context.scale(1.34, 1.34)
   view.render()
 })()
